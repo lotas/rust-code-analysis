@@ -146,7 +146,8 @@ tasks:
             - cd rust-code-analysis
             - git -c advice.detachedHead=false checkout ${head_rev}
             - git submodule update --init
-            - cargo test --workspace --verbose --all-features
+            - cargo install cargo-insta
+            - cargo test --workspace --verbose --all-features -- --nocapture
           mounts:
             - content:
                 url: https://win.rustup.rs/
